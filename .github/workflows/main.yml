@@ -10,8 +10,19 @@ jobs:
     runs-on: ubuntu-latest  # 어떤 운영체제 버전에서 실행하는지 설정 cancel-timeout-minutes: cancel-timeout-minutes: 
 
     steps:
+    - name: git 저장소 소스 복사전의 폴더 구조
+      run: ls -la
+    
     - name: 소스 check out 
       uses: actions/checkout@v3
 
+    - name: git 저장소 소스 복사후의 폴더 구조
+      run: ls -la
+
+    - name: git 저장소 소스 복사후의 hello 폴더 구조 # 리눅스 셀 명령어 2줄 이상 실행시
+      run: |   
+        ls -la
+        ls -la hello
+      
     - name: 메이븐 빌드
       run: mvn clean package
